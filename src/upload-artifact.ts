@@ -45,7 +45,8 @@ async function run(): Promise<void> {
 
       const artifactClient = create()
       const options: UploadOptions = {
-        continueOnError: false
+        continueOnError: false,
+        tryGzip: inputs.tryGzip
       }
       if (inputs.retentionDays) {
         options.retentionDays = inputs.retentionDays

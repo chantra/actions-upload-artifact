@@ -12,6 +12,8 @@ export function getInputs(): UploadInputs {
   const ifNoFilesFound = core.getInput(Inputs.IfNoFilesFound)
   const noFileBehavior: NoFileOptions = NoFileOptions[ifNoFilesFound]
 
+  const tryGzip = core.getBooleanInput(Inputs.TryGzip)
+
   if (!noFileBehavior) {
     core.setFailed(
       `Unrecognized ${
@@ -25,7 +27,8 @@ export function getInputs(): UploadInputs {
   const inputs = {
     artifactName: name,
     searchPath: path,
-    ifNoFilesFound: noFileBehavior
+    ifNoFilesFound: noFileBehavior,
+    tryGzip: tryGzip
   } as UploadInputs
 
   const retentionDaysStr = core.getInput(Inputs.RetentionDays)

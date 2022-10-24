@@ -20,4 +20,9 @@ export interface UploadInputs {
    * Duration after which artifact will expire in days
    */
   retentionDays: number
+
+  /**
+   * Should the file be gzipped before being uploaded?
+   */
+  tryGzip: boolean
 }
